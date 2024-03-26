@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+docker compose up -d && docker attach $(docker compose ps -q backend) --detach-keys="ctrl-x"

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+bin/backend/check_env
+
+docker compose build
+
+bin/backend/bundle install
+bin/backend/rails db:migrate
+
+bin/frontend/yarn install

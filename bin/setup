@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+docker compose build
+
+bin/backend/bundle install
+
+bin/backend/rails db:prepare
+bin/backend/rails db:seed
+
+bin/frontend/yarn install
